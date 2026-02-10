@@ -1,0 +1,249 @@
+---
+// src/pages/index.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { StarsBackgroundWrapper } from "../components/sections/StarsBackgroundWrapper";
+import { HeroSection } from "../components/sections/HeroSection";
+import { AboutSection } from "../components/sections/AboutSection";
+import { ExperienceSection } from "../components/sections/ExperienceSection";
+import { SkillsSection } from "../components/sections/SkillsSection";
+import { ProjectsSection } from "../components/sections/ProjectsSection";
+import { ContactSection } from "../components/sections/ContactSection";
+
+// ==================== PORTFOLIO DATA ====================
+const personalInfo = {
+  name: "MD. MONIRUZZAMAN SHANTO",
+  title: "Software Engineer",
+  summary:
+    "Results-driven Software Engineer with 3+ years of experience designing and scaling full-stack web applications across VPN, ERP, CRM domains. Proven record of boosting Core Web Vitals by 150%, delivering high-performance REST APIs, and optimizing backend systems serving millions of global users.",
+  contact: {
+    email: "ms.shanto1234@gmail.com",
+    phone: "+8801792157755",
+    address: "Uttara, Dhaka, Bangladesh",
+    github: "https://github.com/mzshanto",
+    linkedin: "https://linkedin.com/in/mzshanto",
+  },
+};
+
+const metrics = [
+  { value: "3+", label: "Years Experience", color: "text-emerald-400" },
+  { value: "150%", label: "Performance Boost", color: "text-teal-400" },
+  { value: "Millions", label: "Users Served", color: "text-cyan-400" },
+  { value: "30%", label: "Query Optimization", color: "text-emerald-500" },
+];
+
+const experiences = [
+  {
+    company: "Kolpolok Limited",
+    role: "Software Engineer I",
+    duration: "April 2024 – Present",
+    current: true,
+    achievements: [
+      "Own and manage SymlexVPN, a production VPN platform serving millions of global users, focusing on performance, scalability, and reliability.",
+      "Engineered and optimized frontend & backend systems, improving Core Web Vitals from ~35 to ~80 through targeted performance optimizations.",
+      "Designed and scaled a white-label VPN platform, including admin panels and reseller portals, enabling partners to operate fully branded VPN services.",
+      "Built secure REST APIs, integrated third-party services, and optimized backend systems using MySQL and Redis, improving throughput and query performance by 30%.",
+      "Implemented event-driven architecture with RabbitMQ and centralized logging with Elasticsearch, reducing troubleshooting time by 60%.",
+      "Developed in-app engagement systems including push notifications, email marketing automation, and dynamic banner management to improve retention and conversions.",
+      "Deployed and maintained services on VPS/cloud infrastructure, ensuring high uptime, security, and operational stability.",
+    ],
+    technologies: [
+      "Laravel",
+      "React",
+      "Next.js",
+      "MySQL",
+      "Redis",
+      "RabbitMQ",
+      "Elasticsearch",
+      "Docker",
+      "Nginx",
+    ],
+  },
+  {
+    company: "Face of Art Technologies",
+    role: "Junior Software Engineer",
+    duration: "June 2022 – March 2024",
+    current: false,
+    achievements: [
+      "Developed and maintained scalable modules for CNG automation, e-commerce, courier, hospital, and POS systems.",
+      "Integrated payments, authentication, third-party APIs, reporting, and analytics, contributing to secure, production-ready applications.",
+    ],
+    technologies: [
+      "Laravel",
+      "Vue.js",
+      "MySQL",
+      "REST APIs",
+      "Payment Integration",
+    ],
+  },
+];
+
+const education = {
+  degree: "B.Sc. in Computer Science and Engineering",
+  institution: "East West University",
+  duration: "2018 – 2022",
+  location: "Dhaka, Bangladesh",
+  thesis: "Ethereum Blockchain based Decentralized Online Voting Platform",
+};
+
+const skills = [
+  {
+    category: "Languages",
+    items: ["TypeScript", "JavaScript", "PHP", "Python", "C++", "SQL", "Solidity"],
+  },
+  {
+    category: "Frontend",
+    items: ["React.js", "Next.js", "Vue.js", "Tailwind CSS", "HTML5", "CSS3"],
+  },
+  {
+    category: "Backend",
+    items: ["Node.js", "Express.js", "Nest.js", "Laravel", "REST API", "JWT", "OAuth2"],
+  },
+  {
+    category: "Databases",
+    items: ["PostgreSQL", "MySQL", "Redis", "MongoDB", "Prisma"],
+  },
+  {
+    category: "DevOps",
+    items: ["Docker", "Nginx", "CI/CD", "Git", "Linux", "Cloudflare", "VPS"],
+  },
+  {
+    category: "Specialized",
+    items: [
+      "RabbitMQ",
+      "Elasticsearch",
+      "Blockchain",
+      "WebSockets",
+      "Event-Driven",
+    ],
+  },
+];
+
+const projects = [
+  {
+    title: "SymlexVPN",
+    description:
+      "Production VPN platform serving millions of global users with white-label capabilities, admin panels, and reseller portals. Achieved 150% improvement in Core Web Vitals through targeted frontend and backend optimizations. Features include subscription management, multi-tier reseller system, and real-time analytics dashboard.",
+    technologies: [
+      "Laravel",
+      "React",
+      "Next.js",
+      "MySQL",
+      "Redis",
+      "RabbitMQ",
+      "Elasticsearch",
+    ],
+    featured: true,
+    links: {
+      live: "#",
+    },
+  },
+  {
+    title: "Ticket Master Automation",
+    description:
+      "Cross-platform automation system for large-scale ticket workflows with advanced scraping and automation capabilities. Built with Electron for desktop support, featuring headless browser automation, queue management, and real-time status monitoring.",
+    technologies: [
+      "TypeScript",
+      "Node.js",
+      "Nest.js",
+      "React.js",
+      "Prisma",
+      "Electron.js",
+      "Playwright",
+      "PostgreSQL",
+    ],
+    featured: true,
+    links: {
+      github: "https://github.com/mzshanto",
+    },
+  },
+  {
+    title: "Blockchain Document Verification",
+    description:
+      "Tamper-proof document verification system using file content and buffer hashing on Ethereum blockchain. Ensures document integrity through cryptographic hashing and immutable blockchain storage, with a user-friendly React interface for verification.",
+    technologies: [
+      "Solidity",
+      "Node.js",
+      "Express.js",
+      "React.js",
+      "Ethers.js",
+      "MongoDB",
+    ],
+    featured: false,
+    links: {
+      github: "https://github.com/mzshanto",
+    },
+  },
+];
+---
+
+<BaseLayout title={`${personalInfo.name} | ${personalInfo.title}`}>
+  <!-- Fixed Stars Background (covers entire page) -->
+  <StarsBackgroundWrapper client:load />
+
+  <!-- Hero Section -->
+  <HeroSection client:load personalInfo={personalInfo} metrics={metrics} />
+
+  <!-- About Section (Bento Grid) -->
+  <AboutSection client:load personalInfo={personalInfo} />
+
+  <!-- Experience & Education Section (Timeline) -->
+  <ExperienceSection client:load experiences={experiences} education={education} />
+
+  <!-- Skills Section (Infinite Moving Cards) -->
+  <SkillsSection client:load skills={skills} />
+
+  <!-- Projects Section (Expandable Cards) -->
+  <ProjectsSection client:load projects={projects} />
+
+  <!-- Contact Section (Card Spotlight + Floating Dock) -->
+  <ContactSection client:load personalInfo={personalInfo} />
+
+  <!-- Footer -->
+  <footer class="relative z-10 py-8 border-t border-neutral-800">
+    <div class="absolute inset-0 bg-neutral-950/90"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+        <p class="text-neutral-500 text-sm">
+          © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>
+
+<style is:global>
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #171717;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #404040;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #525252;
+  }
+
+  /* Selection color */
+  ::selection {
+    background: rgba(20, 184, 166, 0.3);
+    color: white;
+  }
+
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    outline: 2px solid #14b8a6;
+    outline-offset: 2px;
+  }
+</style>
