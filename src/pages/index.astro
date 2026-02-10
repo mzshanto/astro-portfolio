@@ -14,7 +14,7 @@ const personalInfo = {
   name: "MD. MONIRUZZAMAN SHANTO",
   title: "Software Engineer",
   summary:
-    "Results-driven Software Engineer with 3+ years of experience designing and scaling full-stack web applications across VPN, ERP, CRM domains. Proven record of boosting Core Web Vitals by 150%, delivering high-performance REST APIs, and optimizing backend systems serving millions of global users.",
+    "Results-driven Software Engineer with 3+ years of experience designing and scaling full-stack web applications across VPN, ERP, CRM domains. Boosted Core Web Vitals by 150%, delivering high-performance REST APIs, and optimizing backend systems serving millions of global users.",
   contact: {
     email: "ms.shanto1234@gmail.com",
     phone: "+8801792157755",
@@ -26,7 +26,7 @@ const personalInfo = {
 
 const metrics = [
   { value: "3+", label: "Years Experience", color: "text-emerald-400" },
-  { value: "150%", label: "Performance Boost", color: "text-teal-400" },
+  { value: "Boost", label: "Performance", color: "text-teal-400" },
   { value: "Millions", label: "Users Served", color: "text-cyan-400" },
   { value: "30%", label: "Query Optimization", color: "text-emerald-500" },
 ];
@@ -88,7 +88,15 @@ const education = {
 const skills = [
   {
     category: "Languages",
-    items: ["TypeScript", "JavaScript", "PHP", "Python", "C++", "SQL", "Solidity"],
+    items: [
+      "TypeScript",
+      "JavaScript",
+      "PHP",
+      "Python",
+      "C++",
+      "SQL",
+      "Solidity",
+    ],
   },
   {
     category: "Frontend",
@@ -96,11 +104,20 @@ const skills = [
   },
   {
     category: "Backend",
-    items: ["Node.js", "Express.js", "Nest.js", "Laravel", "REST API", "JWT", "OAuth2"],
+    items: [
+      "Node.js",
+      "Express.js",
+      "Nest.js",
+      "Laravel",
+      "Prisma",
+      "REST API",
+      "JWT",
+      "OAuth2",
+    ],
   },
   {
     category: "Databases",
-    items: ["PostgreSQL", "MySQL", "Redis", "MongoDB", "Prisma"],
+    items: ["PostgreSQL", "MySQL", "Redis", "MongoDB"],
   },
   {
     category: "DevOps",
@@ -119,6 +136,43 @@ const skills = [
 ];
 
 const projects = [
+  {
+    title: "SymlexHUB",
+    description:
+      "A scalable SaaS platform built to onboard partner companies and enable them to operate fully white-label digital services such as VPN, DNS, and Cloud solutions. SymlexHUB provides a unified system to manage multi-business offerings, subscriptions, billing, and customer lifecycles from a single platform. It supports complex partner, reseller, and affiliate hierarchies with advanced queue processing, event-driven workflows, real-time analytics, and multiple payment integrations.",
+    technologies: [
+      "Laravel",
+      "React",
+      "Next.js",
+      "MySQL",
+      "Redis",
+      "RabbitMQ",
+      "Elasticsearch",
+      "WebSockets",
+      "Event-Driven Architecture",
+    ],
+    featured: true,
+    links: {
+      asd: "#",
+    },
+  },
+  {
+    title: "Standalone VPN Management Platform",
+    description:
+      "A complete end-to-end VPN management solution developed as a standalone product and delivered to clients with full ownership. The platform includes user management, subscription and billing systems, VPN server orchestration, admin dashboards, and real-time monitoring. Each deployment is customized based on client business requirements, branding, and operational workflows, enabling companies to launch and operate their own VPN services independently with full control over infrastructure and codebase.",
+    technologies: [
+      "Laravel",
+      "Next.js",
+      "MySQL",
+      "Redis",
+      "WebSockets",
+      "REST APIs",
+    ],
+    featured: true,
+    links: {
+      live: "#",
+    },
+  },
   {
     title: "SymlexVPN",
     description:
@@ -153,7 +207,7 @@ const projects = [
     ],
     featured: true,
     links: {
-      github: "https://github.com/mzshanto",
+      github: "#",
     },
   },
   {
@@ -170,7 +224,7 @@ const projects = [
     ],
     featured: false,
     links: {
-      github: "https://github.com/mzshanto",
+      github: "#",
     },
   },
 ];
@@ -187,7 +241,11 @@ const projects = [
   <AboutSection client:load personalInfo={personalInfo} />
 
   <!-- Experience & Education Section (Timeline) -->
-  <ExperienceSection client:load experiences={experiences} education={education} />
+  <ExperienceSection
+    client:load
+    experiences={experiences}
+    education={education}
+  />
 
   <!-- Skills Section (Infinite Moving Cards) -->
   <SkillsSection client:load skills={skills} />
@@ -204,7 +262,8 @@ const projects = [
     <div class="container mx-auto px-4 relative z-10">
       <div class="flex flex-col md:flex-row items-center justify-center gap-4">
         <p class="text-neutral-500 text-sm">
-          © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
+          © {new Date().getFullYear()}
+          {personalInfo.name}. All rights reserved.
         </p>
       </div>
     </div>
