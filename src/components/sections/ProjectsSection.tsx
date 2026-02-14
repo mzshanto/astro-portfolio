@@ -123,14 +123,14 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                 className="w-full max-w-[600px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-neutral-900 border border-neutral-700 sm:rounded-3xl overflow-hidden"
               >
                 {/* Expanded Header with gradient */}
-                <motion.div
+                {/* <motion.div
                   layoutId={`image-${active.title}-${id}`}
                   className="w-full h-48 lg:h-56 bg-gradient-to-br from-teal-600 via-emerald-600 to-cyan-700 flex items-center justify-center"
                 >
                   <span className="text-7xl">
                     {projectIcons[active.title] || "🚀"}
                   </span>
-                </motion.div>
+                </motion.div> */}
 
                 <div>
                   {/* Title, Description & CTA */}
@@ -142,15 +142,15 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                       >
                         {active.title}
                       </motion.h3>
-                      <motion.p
+                      {/* <motion.p
                         layoutId={`description-${active.title}-desc-${id}`}
                         className="text-neutral-400 text-sm mt-1"
                       >
                         {active.featured ? "Featured Project" : "Project"}
-                      </motion.p>
+                      </motion.p> */}
                     </div>
 
-                    <motion.a
+                    {/* <motion.a
                       layoutId={`button-${active.title}-${id}`}
                       href={active.links?.live || active.links?.github || "#"}
                       target="_blank"
@@ -158,7 +158,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                       className="px-4 py-3 text-sm rounded-full font-bold bg-teal-500 text-white flex-shrink-0"
                     >
                       {active.links?.live ? "Live Demo" : "View Code"}
-                    </motion.a>
+                    </motion.a> */}
                   </div>
 
                   {/* Expanded Content */}
@@ -191,7 +191,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                       </div>
 
                       {/* Links */}
-                      <div className="flex gap-4">
+                      {/* <div className="flex gap-4">
                         {active.links?.live && (
                           <a
                             href={active.links.live}
@@ -232,7 +232,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                             Source Code
                           </a>
                         )}
-                      </div>
+                      </div> */}
                     </motion.div>
                   </div>
                 </div>
@@ -252,14 +252,14 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
             >
               <div className="flex gap-4 flex-col md:flex-row items-center md:items-start">
                 {/* Project Icon */}
-                <motion.div
+                {/* <motion.div
                   layoutId={`image-${project.title}-${id}`}
                   className="h-28 w-28 md:h-14 md:w-14 rounded-lg bg-gradient-to-br from-teal-600 via-emerald-600 to-cyan-700 flex items-center justify-center flex-shrink-0"
                 >
                   <span className="text-3xl md:text-xl">
                     {projectIcons[project.title] || "🚀"}
                   </span>
-                </motion.div>
+                </motion.div> */}
 
                 {/* Title & Short Description */}
                 <div className="flex-1">
@@ -301,12 +301,12 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
               </div>
 
               {/* CTA Button */}
-              <motion.button
+              {/* <motion.button
                 layoutId={`button-${project.title}-${id}`}
                 className="px-4 py-2 text-sm rounded-full font-bold bg-neutral-800 hover:bg-teal-500 hover:text-white text-neutral-300 mt-4 md:mt-0 border border-neutral-700 hover:border-teal-500 transition-colors duration-200 flex-shrink-0"
               >
                 {project.links?.live ? "Live Demo" : "View Code"}
-              </motion.button>
+              </motion.button> */}
             </motion.div>
           ))}
         </ul>

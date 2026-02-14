@@ -137,12 +137,12 @@ export function ContactSection({ personalInfo }: ContactSectionProps) {
             </div> */}
 
             {/* Name & Title */}
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+            {/* <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
               {personalInfo.name}
             </h3>
             <p className="text-teal-400 font-medium mb-8">
               {personalInfo.title}
-            </p>
+            </p> */}
 
             {/* Contact Info Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
@@ -279,11 +279,6 @@ export function ContactSection({ personalInfo }: ContactSectionProps) {
             ))}
           </div>
         </div>
-
-        {/* Decorative Text */}
-        <p className="text-center text-neutral-600 text-sm mt-8">
-          Available for freelance projects and full-time opportunities
-        </p>
       </div>
     </section>
   );

@@ -4,6 +4,8 @@ import React from "react";
 import { Spotlight } from "../ui/spotlight";
 import { TextGenerateEffect } from "../ui/text-generate-effect";
 import { FlipWords } from "../ui/flip-words";
+import { SparklesCore } from "../ui/sparkles";
+import { GlowingEffect } from "../ui/glowing-effect";
 
 interface PersonalInfo {
   name: string;
@@ -32,7 +34,7 @@ interface HeroSectionProps {
 export function HeroSection({ personalInfo, metrics }: HeroSectionProps) {
   const roles = [
     "Software Engineer",
-    "Full-Stack Developer",
+    "Web Application Specialist",
     "Backend Architect",
     "Performance Optimizer",
   ];
@@ -60,27 +62,35 @@ export function HeroSection({ personalInfo, metrics }: HeroSectionProps) {
         </div>
 
         {/* Animated Summary */}
-        <div className="max-w-4xl mx-auto mb-10">
+        {/* <div className="max-w-4xl mx-auto mb-10">
           <TextGenerateEffect
             words={personalInfo.summary}
             className="text-base md:text-lg lg:text-xl font-medium text-center leading-relaxed text-neutral-300"
           />
-        </div>
+        </div> */}
 
         {/* Key Metrics */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 w-full max-w-4xl">
           {metrics.map((metric, index) => (
-            <div
-              key={index}
-              className="text-center bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 rounded-xl px-6 py-4 hover:border-teal-500/30 transition-all duration-300"
-            >
-              <div
-                className={`text-3xl md:text-4xl font-bold ${metric.color} mb-1`}
-              >
-                {metric.value}
-              </div>
-              <div className="text-xs md:text-sm text-neutral-400">
-                {metric.label}
+            <div key={index} className="list-none">
+              <div className="relative h-full rounded-2xl p-2 md:rounded-3xl md:p-3">
+                <GlowingEffect
+                  spread={40}
+                  glow={true}
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                />
+                <div className="relative flex h-full flex-col justify-center items-center overflow-hidden rounded-xl bg-neutral-900/40 p-6 md:p-8">
+                  <div
+                    className={`text-4xl md:text-5xl font-bold ${metric.color} mb-2`}
+                  >
+                    {metric.value}
+                  </div>
+                  <div className="text-sm md:text-base text-neutral-400 font-medium text-center">
+                    {metric.label}
+                  </div>
+                </div>
               </div>
             </div>
           ))}
@@ -138,23 +148,6 @@ export function HeroSection({ personalInfo, metrics }: HeroSectionProps) {
             </span>
           </a>
         </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <svg
-          className="w-6 h-6 text-teal-400"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
       </div>
     </section>
   );
