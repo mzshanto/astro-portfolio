@@ -132,9 +132,9 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                   </span>
                 </motion.div> */}
 
-                <div>
+                <div className="flex flex-col flex-1 overflow-hidden">
                   {/* Title, Description & CTA */}
-                  <div className="flex justify-between items-start p-6">
+                  <div className="flex justify-between items-start p-6 shrink-0">
                     <div className="flex-1 pr-4">
                       <motion.h3
                         layoutId={`title-${active.title}-${id}`}
@@ -162,13 +162,13 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                   </div>
 
                   {/* Expanded Content */}
-                  <div className="pt-2 relative px-6 pb-6">
+                  <div className="pt-2 relative px-6 pb-6 flex-1 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]">
                     <motion.div
                       layout
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      className="text-neutral-300 text-sm md:text-base h-48 md:h-fit pb-10 flex flex-col items-start gap-6 overflow-auto [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
+                      className="text-neutral-300 text-sm md:text-base pb-4 flex flex-col items-start gap-6"
                     >
                       {/* Full Description */}
                       <p className="leading-relaxed">{active.description}</p>
