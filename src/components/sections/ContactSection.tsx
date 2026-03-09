@@ -92,13 +92,13 @@ export function ContactSection({ personalInfo }: ContactSectionProps) {
   ];
 
   return (
-    <section id="contact" className="relative z-10 py-20">
+    <section id="contact" className="relative z-10 pb-10 md:pb-28">
       {/* Semi-transparent overlay */}
       <div className="absolute inset-0"></div>
 
       <div className="container mx-auto px-4 max-w-4xl relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-6">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Get In <span className="text-teal-400">Touch</span>
           </h2>
@@ -248,35 +248,6 @@ export function ContactSection({ personalInfo }: ContactSectionProps) {
               </svg>
               Send Me an Email
             </a>
-          </div>
-        </div>
-
-        {/* Floating Dock for Social Links */}
-        <div className="mt-12 flex justify-center">
-          <div className="flex items-center gap-2 p-2 bg-neutral-800/80 backdrop-blur-sm border border-neutral-700/50 rounded-2xl">
-            {dockItems.map((item, index) => (
-              <a
-                key={index}
-                href={item.href}
-                target={item.href.startsWith("http") ? "_blank" : undefined}
-                rel={
-                  item.href.startsWith("http")
-                    ? "noopener noreferrer"
-                    : undefined
-                }
-                className="group relative flex items-center justify-center w-12 h-12 rounded-xl bg-neutral-700/50 hover:bg-teal-500/20 border border-transparent hover:border-teal-500/30 transition-all duration-300 hover:scale-110"
-                aria-label={item.title}
-              >
-                <span className="text-neutral-400 group-hover:text-teal-400 transition-colors">
-                  {item.icon}
-                </span>
-
-                {/* Tooltip */}
-                <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-neutral-800 border border-neutral-700 rounded-md text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                  {item.title}
-                </span>
-              </a>
-            ))}
           </div>
         </div>
       </div>

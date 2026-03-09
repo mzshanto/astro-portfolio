@@ -270,19 +270,6 @@ const projects = [
 
   <!-- Contact Section (Card Spotlight + Floating Dock) -->
   <ContactSection client:load personalInfo={personalInfo} />
-
-  <!-- Footer -->
-  <footer class="relative z-10 py-8 border-t border-neutral-800">
-    <div class="absolute inset-0 bg-neutral-950/90"></div>
-    <div class="container mx-auto px-4 relative z-10">
-      <div class="flex flex-col md:flex-row items-center justify-center gap-4">
-        <p class="text-neutral-500 text-sm">
-          © {new Date().getFullYear()}
-          {personalInfo.name}. All rights reserved.
-        </p>
-      </div>
-    </div>
-  </footer>
 </BaseLayout>
 
 <style is:global>
