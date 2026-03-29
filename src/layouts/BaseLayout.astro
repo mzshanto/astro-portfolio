@@ -8,34 +8,85 @@ interface Props {
   description?: string;
 }
 
-const { 
+const {
   title = "MD. Moniruzzaman Shanto - Software Engineer",
-  description = "Results-driven Software Engineer with 3+ years of experience designing and scaling full-stack web applications"
+  description = "Results-driven Software Engineer with 3+ years of experience designing and scaling full-stack web applications across VPN, ERP, and CRM domains. Boosted Core Web Vitals by 150%, serving millions of global users."
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? "https://mzshanto.dev");
+const ogImage = new URL("/og-image.png", canonicalURL.origin).toString();
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "MD. Moniruzzaman Shanto",
+  jobTitle: "Software Engineer",
+  url: canonicalURL.origin,
+  email: "ms.shanto1234@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Uttara, Dhaka",
+    addressCountry: "BD"
+  },
+  sameAs: [
+    "https://github.com/mzshanto",
+    "https://linkedin.com/in/mzshanto"
+  ],
+  knowsAbout: [
+    "TypeScript", "JavaScript", "PHP", "Laravel", "React", "Next.js",
+    "Node.js", "PostgreSQL", "MySQL", "Redis", "RabbitMQ", "Elasticsearch",
+    "Docker", "Blockchain", "Full-Stack Development"
+  ]
+};
 ---
 
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content={description}>
-  <meta name="author" content="MD. Moniruzzaman Shanto">
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content={title}>
-  <meta property="og:description" content={description}>
-  <meta property="og:type" content="website">
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content={title}>
-  <meta name="twitter:description" content={description}>
-  
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+
+  <!-- Primary SEO -->
   <title>{title}</title>
-  
-  <script is:inline src="/src/scripts/theme.ts"></script>
+  <meta name="description" content={description} />
+  <meta name="author" content="MD. Moniruzzaman Shanto" />
+  <meta name="keywords" content="Moniruzzaman Shanto, Software Engineer, Full-Stack Developer, Laravel, React, Next.js, Node.js, Bangladesh, Web Developer, Backend Engineer" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonicalURL.toString()} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Moniruzzaman Shanto" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalURL.toString()} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="MD. Moniruzzaman Shanto - Software Engineer" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+  <meta name="twitter:image:alt" content="MD. Moniruzzaman Shanto - Software Engineer" />
+  <meta name="twitter:creator" content="@mzshanto" />
+  <meta name="twitter:site" content="@mzshanto" />
+
+  <!-- Theme & Icons -->
+  <meta name="theme-color" content="#14b8a6" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- JSON-LD Structured Data -->
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Theme Init (bundled by Astro) -->
+  <script>
+    import '../scripts/theme.ts';
+  </script>
 </head>
 <body>
   <slot />

@@ -108,12 +108,12 @@ const categoryIcons: Record<string, React.ReactNode> = {
 
 // Grid area assignments for the bento-style layout
 const gridAreas = [
-  "md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]", // Languages
-  "md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]", // Frontend
-  "md:[grid-area:2/1/3/7] xl:[grid-area:1/5/2/8]", // Backend (tall)
-  "md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]", // Databases
-  "md:[grid-area:3/1/4/7] xl:[grid-area:2/5/3/8]", // DevOps
-  "md:[grid-area:3/7/4/13] xl:[grid-area:2/8/3/13]", // Specialized
+  "md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]",   // Languages  (4 cols)
+  "md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]",  // Frontend   (4 cols)
+  "md:[grid-area:2/1/3/7] xl:[grid-area:1/5/2/10]",  // Backend    (5 cols)
+  "md:[grid-area:2/7/3/13] xl:[grid-area:1/10/2/13]", // Databases  (3 cols)
+  "md:[grid-area:3/1/4/7] xl:[grid-area:2/5/3/10]",  // DevOps     (5 cols)
+  "md:[grid-area:3/7/4/13] xl:[grid-area:2/10/3/13]", // Specialized(3 cols)
 ];
 
 interface SkillGridItemProps {
