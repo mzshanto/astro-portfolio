@@ -3,7 +3,8 @@ import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
 
 export default defineConfig({
-  site: 'https://mzshanto.epizy.com',
+  site: 'https://mzshanto.github.io',
+  base: '/astro-portfolio',
   integrations: [tailwind(), react()],
   output: 'static',
 });
