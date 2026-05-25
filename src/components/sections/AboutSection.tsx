@@ -2,6 +2,20 @@
 "use client";
 import React from "react";
 import { WobbleCard } from "../ui/wobble-card";
+import {
+  Code2,
+  Cpu,
+  Package,
+  Rocket,
+  Hammer,
+  BookOpen,
+  MessageSquare,
+  MapPin,
+  UserRound,
+  Briefcase,
+  Zap,
+  Layers,
+} from "lucide-react";
 
 interface PersonalInfo {
   name: string;
@@ -23,166 +37,213 @@ interface AboutSectionProps {
 export function AboutSection({ personalInfo }: AboutSectionProps) {
   return (
     <section id="about" className="relative z-10 py-20">
-      {/* Semi-transparent overlay */}
-      <div className="absolute"></div>
-
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
+
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             About <span className="text-teal-400">Me</span>
           </h2>
           <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
-            Building scalable systems that serve millions
+            Engineer by trade, builder by nature
           </p>
         </div>
 
-        {/* WobbleCard Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto w-full">
-          {/* Main About Card (Large - spans 2 cols) */}
-          <WobbleCard containerClassName="col-span-1 lg:col-span-2 min-h-[500px] lg:min-h-[400px] bg-gradient-to-br from-teal-900 to-emerald-900 bg-opacity-0">
-            <div className="max-w-lg">
-              <div className="w-14 h-14 bg-teal-500/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
-                <svg
-                  className="w-7 h-7 text-teal-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                  />
-                </svg>
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 max-w-7xl mx-auto w-full">
+
+          {/* ── Card 1: Who I Am ── */}
+          <WobbleCard
+            containerClassName="col-span-1 lg:col-span-2 min-h-[420px] bg-teal-950/35 border border-teal-500/20"
+            className="!py-10 sm:!px-8"
+          >
+            <div className="max-w-xl">
+              <div className="w-10 h-10 bg-teal-500/20 rounded-xl flex items-center justify-center mb-4">
+                <UserRound size={18} className="text-teal-400" />
               </div>
-              <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-                Full-Stack Engineer Specializing in High-Performance Systems
-              </h2>
-              <p className="mt-4 text-left text-base/6 text-neutral-200">
-                With 3+ years of experience, I've built and scaled applications
-                serving millions of users globally. I'm passionate about clean
-                architecture, system optimization, and delivering measurable
-                impact.
+              <h3 className="text-2xl font-semibold text-white mb-4 leading-snug">
+                I build things people actually use
+              </h3>
+              <p className="text-neutral-200 text-[15px] leading-relaxed mb-3">
+                I'm a full-stack engineer who <strong className="text-teal-300 font-medium">owns products end-to-end</strong> — from architecture and database design to deployment pipelines and 2am production incidents.
               </p>
-              <p className="mt-4 text-left text-sm text-neutral-300">
-                Experienced in distributed systems, cloud/VPS deployments, and
-                event-driven architectures using Redis, RabbitMQ, and
-                Elasticsearch.
+              <p className="text-neutral-300 text-sm leading-relaxed mb-3">
+                3+ years shipping and scaling systems across VPN, ERP, and CRM domains — equally comfortable reviewing a DB query plan as polishing a UI interaction.
+              </p>
+              <p className="text-neutral-300 text-sm leading-relaxed">
+                I care about systems that stay up, code that's readable months later, and products that genuinely solve real problems.
               </p>
             </div>
           </WobbleCard>
 
-          {/* Performance Metric Card */}
-          <WobbleCard containerClassName="col-span-1 min-h-[300px] bg-gradient-to-br from-cyan-900 to-teal-900 bg-opacity-0">
-            <div className="max-w-xs">
-              <div className="w-12 h-12 bg-cyan-500/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4">
-                <svg
-                  className="w-6 h-6 text-cyan-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                  />
-                </svg>
+          {/* ── Card 2: What I Do ── */}
+          <WobbleCard
+            containerClassName="col-span-1 lg:col-span-2 min-h-[420px] bg-emerald-950/35 border border-emerald-500/20"
+            className="!py-10 sm:!px-8"
+          >
+            <div>
+              <div className="w-10 h-10 bg-emerald-500/20 rounded-xl flex items-center justify-center mb-4">
+                <Briefcase size={18} className="text-emerald-400" />
               </div>
-              <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-                150% Performance Boost
-              </h2>
-              <p className="mt-4 text-left text-base/6 text-neutral-200">
-                Optimized Core Web Vitals from ~35 to ~80, delivering
-                blazing-fast user experiences for millions of global users.
-              </p>
+              <h3 className="text-xl font-semibold text-white mb-5">What I Do</h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-teal-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Code2 size={14} className="text-teal-400" />
+                  </div>
+                  <div>
+                    <p className="text-white text-sm font-semibold">Full-Stack Engineering</p>
+                    <p className="text-neutral-300 text-xs mt-0.5 leading-relaxed">
+                      React / Next.js frontends + Laravel REST APIs
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Cpu size={14} className="text-cyan-400" />
+                  </div>
+                  <div>
+                    <p className="text-white text-sm font-semibold">System Architecture</p>
+                    <p className="text-neutral-300 text-xs mt-0.5 leading-relaxed">
+                      Event-driven, queues, distributed microservices
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Package size={14} className="text-emerald-400" />
+                  </div>
+                  <div>
+                    <p className="text-white text-sm font-semibold">SaaS / Product Building</p>
+                    <p className="text-neutral-300 text-xs mt-0.5 leading-relaxed">
+                      Own it end-to-end — not just code it
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Rocket size={14} className="text-cyan-400" />
+                  </div>
+                  <div>
+                    <p className="text-white text-sm font-semibold">Performance &amp; DevOps</p>
+                    <p className="text-neutral-300 text-xs mt-0.5 leading-relaxed">
+                      VPS / cloud deployments, uptime &amp; monitoring
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </WobbleCard>
 
-          {/* Users Served Card */}
-          <WobbleCard containerClassName="col-span-1 min-h-[300px] bg-gradient-to-br from-emerald-900 to-green-900 bg-opacity-0">
-            <div className="max-w-xs">
-              <div className="w-12 h-12 bg-emerald-500/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4">
-                <svg
-                  className="w-6 h-6 text-emerald-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
+          {/* ── Card 3: Right Now ── */}
+          <WobbleCard
+            containerClassName="col-span-1 lg:col-span-2 min-h-[360px] bg-teal-950/35 border border-teal-500/20"
+            className="!py-10 sm:!px-8"
+          >
+            <div>
+              <div className="w-10 h-10 bg-teal-500/20 rounded-xl flex items-center justify-center mb-4">
+                <Zap size={18} className="text-teal-400" />
               </div>
-              <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-                Millions of Users
-              </h2>
-              <p className="mt-4 text-left text-base/6 text-neutral-200">
-                Managing SymlexVPN, a production platform trusted by millions
-                worldwide with 3+ years of full-stack expertise.
-              </p>
+              <h3 className="text-xl font-semibold text-white mb-5">Right Now</h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <Hammer size={14} className="text-amber-400 flex-shrink-0 mt-[2px]" />
+                  <div>
+                    <p className="text-teal-500/80 text-[10px] uppercase tracking-widest font-semibold mb-0.5">Building</p>
+                    <p className="text-white text-sm leading-relaxed">
+                      SymlexHUB — multi-tenant white-label SaaS platform
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <BookOpen size={14} className="text-sky-400 flex-shrink-0 mt-[2px]" />
+                  <div>
+                    <p className="text-teal-500/80 text-[10px] uppercase tracking-widest font-semibold mb-0.5">Exploring</p>
+                    <p className="text-white text-sm leading-relaxed">
+                      AI &amp; System Design
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <MessageSquare size={14} className="text-teal-400 flex-shrink-0 mt-[2px]" />
+                  <div>
+                    <p className="text-teal-500/80 text-[10px] uppercase tracking-widest font-semibold mb-0.5">Open to</p>
+                    <p className="text-white text-sm leading-relaxed">
+                      Freelance projects &amp; full-time roles
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <MapPin size={14} className="text-rose-400 flex-shrink-0 mt-[2px]" />
+                  <div>
+                    <p className="text-teal-500/80 text-[10px] uppercase tracking-widest font-semibold mb-0.5">Based in</p>
+                    <p className="text-neutral-200 text-sm">Bangladesh 🇧🇩</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </WobbleCard>
 
-          {/* Tech Stack Card (spans 2 cols) */}
-          <WobbleCard containerClassName="col-span-1 lg:col-span-2 min-h-[300px] bg-gradient-to-br from-neutral-800 to-neutral-900 bg-opacity-0">
-            <div className="max-w-lg">
-              <div className="w-12 h-12 bg-teal-500/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4">
-                <svg
-                  className="w-6 h-6 text-teal-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                  />
-                </svg>
+          {/* ── Card 4: Tech Stack ── */}
+          <WobbleCard
+            containerClassName="col-span-1 lg:col-span-2 min-h-[360px] bg-slate-900/35 border border-slate-500/20"
+            className="!py-10 sm:!px-8"
+          >
+            <div>
+              <div className="w-10 h-10 bg-slate-500/20 rounded-xl flex items-center justify-center mb-4">
+                <Layers size={18} className="text-slate-300" />
               </div>
-              <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-                Building Event-Driven Systems
-              </h2>
-              <p className="mt-4 text-left text-base/6 text-neutral-200 mb-6">
-                Architecting scalable solutions with modern technologies and
-                distributed systems.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1.5 bg-teal-500/20 border border-teal-500/30 rounded-full text-sm text-teal-300 font-medium">
-                  Next.Js
-                </span>
-                <span className="px-3 py-1.5 bg-teal-500/20 border border-teal-500/30 rounded-full text-sm text-teal-300 font-medium">
-                  React
-                </span>
-                <span className="px-3 py-1.5 bg-teal-500/20 border border-teal-500/30 rounded-full text-sm text-teal-300 font-medium">
-                  Laravel
-                </span>
-                <span className="px-3 py-1.5 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-sm text-emerald-300 font-medium">
-                  RabbitMQ
-                </span>
-                <span className="px-3 py-1.5 bg-cyan-500/20 border border-cyan-500/30 rounded-full text-sm text-cyan-300 font-medium">
-                  Redis
-                </span>
-                <span className="px-3 py-1.5 bg-teal-500/20 border border-teal-500/30 rounded-full text-sm text-teal-300 font-medium">
-                  Elasticsearch
-                </span>
-                <span className="px-3 py-1.5 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-sm text-emerald-300 font-medium">
-                  PostgreSQL
-                </span>
-                <span className="px-3 py-1.5 bg-cyan-500/20 border border-cyan-500/30 rounded-full text-sm text-cyan-300 font-medium">
-                  Docker
-                </span>
+              <h3 className="text-xl font-semibold text-white mb-5">Tech Stack</h3>
+              <div className="space-y-3">
+
+                <div className="flex items-start gap-4">
+                  <span className="text-[10px] font-bold text-teal-400 uppercase tracking-widest w-16 flex-shrink-0 pt-[4px]">Frontend</span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["React", "Next.js", "Vue.js", "TypeScript"].map((t) => (
+                      <span key={t} className="px-2.5 py-0.5 bg-teal-500/15 border border-teal-500/25 rounded-full text-xs text-teal-300 font-medium">{t}</span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest w-16 flex-shrink-0 pt-[4px]">Backend</span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["Laravel", "Node.js", "NestJS", "Express"].map((t) => (
+                      <span key={t} className="px-2.5 py-0.5 bg-blue-500/15 border border-blue-500/25 rounded-full text-xs text-blue-300 font-medium">{t}</span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest w-16 flex-shrink-0 pt-[4px]">Database</span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["MySQL", "PostgreSQL", "MongoDB", "Redis"].map((t) => (
+                      <span key={t} className="px-2.5 py-0.5 bg-emerald-500/15 border border-emerald-500/25 rounded-full text-xs text-emerald-300 font-medium">{t}</span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <span className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest w-16 flex-shrink-0 pt-[4px]">Infra</span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["RabbitMQ", "Elasticsearch", "Docker", "VPS / Cloud"].map((t) => (
+                      <span key={t} className="px-2.5 py-0.5 bg-cyan-500/15 border border-cyan-500/25 rounded-full text-xs text-cyan-300 font-medium">{t}</span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <span className="text-[10px] font-bold text-sky-400 uppercase tracking-widest w-16 flex-shrink-0 pt-[4px]">Tooling</span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["Playwright", "Electron", "Prisma", "Solidity"].map((t) => (
+                      <span key={t} className="px-2.5 py-0.5 bg-sky-500/15 border border-sky-500/25 rounded-full text-xs text-sky-300 font-medium">{t}</span>
+                    ))}
+                  </div>
+                </div>
+
               </div>
             </div>
           </WobbleCard>
+
         </div>
       </div>
     </section>
